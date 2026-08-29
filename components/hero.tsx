@@ -1,4 +1,4 @@
-import { MessageCircle, PlayCircle, Zap } from 'lucide-react'
+import { MessageCircle, PlayCircle } from 'lucide-react'
 import { CONTACT } from '@/lib/site'
 import { PhoneAlert } from './phone-alert'
 
@@ -18,8 +18,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
         <div className="animate-float-in">
-          <span className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-border bg-muted/60 px-3.5 py-1.5 text-center text-sm font-medium text-muted-foreground backdrop-blur">
-            <Zap className="h-4 w-4 text-cyan" aria-hidden="true" />
+          <span className="animate-float-bob inline-flex flex-wrap items-center justify-center rounded-full border border-border bg-muted/60 px-3.5 py-1.5 text-center text-sm font-medium text-muted-foreground backdrop-blur">
             We Will Turn Your Website Into An Automated Lead Capture Engine
           </span>
 
