@@ -1,10 +1,6 @@
 import { MessageCircle, PlayCircle } from 'lucide-react'
-import Image from 'next/image'
 import { CONTACT } from '@/lib/site'
-import img1 from '@/images/1.png'
-import img2 from '@/images/2.png'
-import img3 from '@/images/3.png'
-import img4 from '@/images/4.png'
+import { NotificationCards } from './notification-cards'
 
 export function Hero() {
   return (
@@ -81,40 +77,7 @@ export function Hero() {
         </div>
 
         <div className="animate-float-in [animation-delay:120ms]">
-          <div className="grid grid-cols-2 gap-4 sm:gap-5">
-            <div className="flex flex-col gap-4 sm:gap-5">
-              <Image
-                src={img1}
-                alt="Hero image 1"
-                width={1600}
-                height={800}
-                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:0s]"
-              />
-              <Image
-                src={img2}
-                alt="Hero image 2"
-                width={1600}
-                height={800}
-                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:1.75s]"
-              />
-            </div>
-            <div className="flex flex-col gap-4 sm:gap-5 lg:mt-12">
-              <Image
-                src={img3}
-                alt="Hero image 3"
-                width={1600}
-                height={800}
-                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:0.85s]"
-              />
-              <Image
-                src={img4}
-                alt="Hero image 4"
-                width={1600}
-                height={800}
-                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:2.6s]"
-              />
-            </div>
-          </div>
+          <NotificationCards />
         </div>
       </div>
     </section>
