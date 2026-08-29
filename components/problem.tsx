@@ -4,7 +4,7 @@ const STATS = [
   {
     icon: TrendingDown,
     value: '78%',
-    label: 'of people buy from the shop that answers first.',
+    label: 'of clients pay the local business that answers first, quotes first, and calls back first.',
   },
   {
     icon: Clock,
