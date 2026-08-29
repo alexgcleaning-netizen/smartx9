@@ -1,20 +1,30 @@
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
+import { Plus } from 'lucide-react'
 
-const NICHES = [
+import hvacImg from '@/images/hvac and heating.jpg'
+import junkRemovalImg from '@/images/junk removal.jpg'
+import plumbingImg from '@/images/plumbing.jpg'
+import pressureWashingImg from '@/images/pressure washing.jpg'
+import roofingImg from '@/images/roofing.jpg'
+import treeRemovalImg from '@/images/tree removal.jpg'
+
+type Niche = {
+  label: string
+  image?: string | StaticImageData
+}
+
+const NICHES: Niche[] = [
   {
     label: 'Roofing',
-    image:
-      'https://images.unsplash.com/photo-1632154028712-b69f2ae903ac?auto=format&fit=crop&w=600&q=70',
+    image: roofingImg,
   },
   {
     label: 'HVAC & Heating',
-    image:
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=70',
+    image: hvacImg,
   },
   {
     label: 'Plumbing',
-    image:
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=70',
+    image: plumbingImg,
   },
   {
     label: 'House Cleaning',
@@ -23,23 +33,18 @@ const NICHES = [
   },
   {
     label: 'Tree Removal',
-    image:
-      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=70',
+    image: treeRemovalImg,
   },
   {
     label: 'Pressure Washing',
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=70',
+    image: pressureWashingImg,
   },
   {
     label: 'Junk Removal',
-    image:
-      'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=70',
+    image: junkRemovalImg,
   },
   {
     label: '& more',
-    image:
-      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=70',
   },
 ]
 
@@ -61,22 +66,32 @@ export function Niches() {
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {NICHES.map((n) => (
-            <div
-              key={n.label}
-              className="group relative flex aspect-[4/3] flex-col items-center justify-end overflow-hidden rounded-2xl border border-border p-4 backdrop-blur transition-colors hover:border-primary/40"
-            >
-              <Image
-                src={n.image}
-                alt={n.label}
-                fill
-                sizes="(min-width: 640px) 25vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <span className="relative text-sm font-semibold text-white">{n.label}</span>
-            </div>
-          ))}
+          {NICHES.map((n) =>
+            n.image ? (
+              <div
+                key={n.label}
+                className="group relative flex aspect-[4/3] flex-col items-center justify-end overflow-hidden rounded-2xl border border-border p-4 backdrop-blur transition-colors hover:border-primary/40"
+              >
+                <Image
+                  src={n.image}
+                  alt={n.label}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <span className="relative text-sm font-semibold text-white">{n.label}</span>
+              </div>
+            ) : (
+              <div
+                key={n.label}
+                className="group relative flex aspect-[4/3] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-white/10 to-transparent p-4 backdrop-blur transition-colors hover:border-primary/40"
+              >
+                <Plus className="h-5 w-5 text-primary drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] transition-transform duration-300 group-hover:scale-125" />
+                <span className="text-sm font-semibold text-white">{n.label}</span>
+              </div>
+            ),
+          )}
         </div>
       </div>
     </section>
