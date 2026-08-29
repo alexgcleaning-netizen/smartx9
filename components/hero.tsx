@@ -33,16 +33,29 @@ export function Hero() {
 
           <div className="space-y-4 mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
             <p className="leading-relaxed">
-              <span className="font-semibold text-white">Harvard Business Review</span> found a
-              brutal fact: <span className="font-bold text-white">96% of local websites</span> get{' '}
-              <span className="font-bold text-white">zero traffic</span> from Google. The rest take{' '}
-              <span className="font-bold text-white">42 hours to reply</span> to a lead. And{' '}
-              <span className="font-bold text-white">23% never reply at all</span>. Only{' '}
+              <span className="font-semibold text-white">Harvard Business Review</span> revealed two
+              brutal facts:
+            </p>
+            <div className="space-y-2">
+              <p className="leading-relaxed">
+                <span className="font-bold text-white">1. The Traffic Trap:</span>{' '}
+                <span className="font-bold text-white">96% of local websites</span> get{' '}
+                <span className="font-bold text-white">zero traffic</span> from Google.
+              </p>
+              <p className="leading-relaxed">
+                <span className="font-bold text-white">2. The Delay Trap:</span> Of the few that do
+                get leads, <span className="font-bold text-white">23% never reply</span>, and the
+                rest take an average of <span className="font-bold text-white">42 hours</span> to
+                respond.
+              </p>
+            </div>
+            <p className="leading-relaxed">
+              Only{' '}
               <span className="font-bold text-white">1% of businesses reply within 5 minutes</span>
-              —giving them a <span className="font-bold text-white">90% chance to win that client</span>.
+              —giving them a <span className="font-bold text-white">90% chance to win the client</span>.
             </p>
             <p className="leading-relaxed">
-              Our system puts you inside that{' '}
+              Our system puts your business inside that{' '}
               <span className="font-bold text-white [text-shadow:0_0_8px_rgba(168,85,247,0.9)] [box-shadow:inset_0_-2px_0_rgba(168,85,247,1),0_0_10px_rgba(168,85,247,0.55)]">
                 top 1%
               </span>.
