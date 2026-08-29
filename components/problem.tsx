@@ -25,11 +25,11 @@ export function Problem() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
             Customers don&apos;t wait. They text the next{' '}
-            <span className="text-secondary">three</span> shops too.
+            <span className="text-secondary">three</span> local businesses too.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Being fast is the whole game. The shop that answers first almost always wins the
-            job — no matter the price, the reviews, or how nice the website looks.
+            Being fast is the whole game. The local business that answers first almost always wins
+            the job — no matter the price, the reviews, or how nice the website looks.
           </p>
         </div>
 
