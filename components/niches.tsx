@@ -7,34 +7,34 @@ const NICHES = [
       'https://images.unsplash.com/photo-1632154028712-b69f2ae903ac?auto=format&fit=crop&w=600&q=70',
   },
   {
-    label: 'Cleaning',
-    image:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=70',
-  },
-  {
-    label: 'Tree removal',
-    image:
-      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=70',
-  },
-  {
-    label: 'Repair',
-    image:
-      'https://images.unsplash.com/photo-1581147036324-c11c1f9e8b0b?auto=format&fit=crop&w=600&q=70',
-  },
-  {
-    label: 'Heating & Plumbing',
+    label: 'HVAC & Heating',
     image:
       'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=70',
   },
   {
-    label: 'Moving',
+    label: 'Plumbing',
     image:
-      'https://images.unsplash.com/photo-1600518464441-9154a4dea21f?auto=format&fit=crop&w=600&q=70',
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=70',
   },
   {
-    label: 'Bug control',
+    label: 'House Cleaning',
     image:
-      'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&q=70',
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Tree Removal',
+    image:
+      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Pressure Washing',
+    image:
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Junk Removal',
+    image:
+      'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=70',
   },
   {
     label: '& more',
