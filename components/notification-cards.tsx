@@ -34,6 +34,14 @@ const CARDS: AlertCard[] = [
     rotation: 'rotate-2',
     delay: '3.2s',
   },
+  {
+    icon: 'mail',
+    header: 'NEW BOOKING REQUEST — $280',
+    subtext: 'Airbnb Turnover • 2.5 Beds • Alerted in 34s',
+    time: '1m ago',
+    rotation: '-rotate-1',
+    delay: '4.8s',
+  },
 ]
 
 const ICONS = {
