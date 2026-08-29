@@ -33,17 +33,18 @@ export function Hero() {
 
           <div className="space-y-4 mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
             <p className="leading-relaxed">
-              <span className="font-semibold text-white">Harvard Business Review</span> proved why
-              most local websites fail: <span className="font-bold text-white">96% of local websites</span> get{' '}
-              <span className="font-bold text-white">zero traffic</span> from Google. <span className="font-bold text-white">42 hours</span> is how long the rest take to
-              answer. <span className="font-bold text-white">23% never reply at all</span>. Only{' '}
-              <span className="font-bold text-white">3% reply in under 5 minutes</span>—and they win{' '}
-              <span className="font-bold text-white">90% of the clients</span>.
+              <span className="font-semibold text-white">Harvard Business Review</span> found a
+              brutal fact: <span className="font-bold text-white">96% of local websites</span> get{' '}
+              <span className="font-bold text-white">zero traffic</span> from Google. The rest take{' '}
+              <span className="font-bold text-white">42 hours to reply</span> to a lead. And{' '}
+              <span className="font-bold text-white">23% never reply at all</span>. Only{' '}
+              <span className="font-bold text-white">1% of businesses reply within 5 minutes</span>
+              —giving them a <span className="font-bold text-white">90% chance to win that client</span>.
             </p>
             <p className="leading-relaxed">
               Our system puts you inside that{' '}
               <span className="font-bold text-white [text-shadow:0_0_8px_rgba(168,85,247,0.9)] [box-shadow:inset_0_-2px_0_rgba(168,85,247,1),0_0_10px_rgba(168,85,247,0.55)]">
-                top 3%
+                top 1%
               </span>.
             </p>
           </div>
