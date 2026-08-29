@@ -20,7 +20,7 @@ export function Hero() {
         <div className="animate-float-in">
           <span className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-border bg-muted/60 px-3.5 py-1.5 text-center text-sm font-medium text-muted-foreground backdrop-blur">
             <Zap className="h-4 w-4 text-cyan" aria-hidden="true" />
-            Turn Your Website Into An Automated Lead Capture Engine
+            We Will Turn Your Website Into An Automated Lead Capture Engine
           </span>
 
           <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
