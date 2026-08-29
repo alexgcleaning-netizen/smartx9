@@ -1,23 +1,46 @@
-import {
-  Home,
-  Sparkles,
-  Trees,
-  Droplets,
-  Wrench,
-  Truck,
-  Bug,
-  Plus,
-} from 'lucide-react'
+import Image from 'next/image'
 
 const NICHES = [
-  { icon: Home, label: 'Roofing' },
-  { icon: Sparkles, label: 'Cleaning' },
-  { icon: Trees, label: 'Tree removal' },
-  { icon: Droplets, label: 'Repair' },
-  { icon: Wrench, label: 'Heating & Plumbing' },
-  { icon: Truck, label: 'Moving' },
-  { icon: Bug, label: 'Bug control' },
-  { icon: Plus, label: '& more' },
+  {
+    label: 'Roofing',
+    image:
+      'https://images.unsplash.com/photo-1632154028712-b69f2ae903ac?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Cleaning',
+    image:
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Tree removal',
+    image:
+      'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Repair',
+    image:
+      'https://images.unsplash.com/photo-1581147036324-c11c1f9e8b0b?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Heating & Plumbing',
+    image:
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Moving',
+    image:
+      'https://images.unsplash.com/photo-1600518464441-9154a4dea21f?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: 'Bug control',
+    image:
+      'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&q=70',
+  },
+  {
+    label: '& more',
+    image:
+      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=70',
+  },
 ]
 
 export function Niches() {
@@ -41,12 +64,17 @@ export function Niches() {
           {NICHES.map((n) => (
             <div
               key={n.label}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-card/60 p-6 text-center backdrop-blur transition-colors hover:border-primary/40"
+              className="group relative flex aspect-[4/3] flex-col items-center justify-end overflow-hidden rounded-2xl border border-border p-4 backdrop-blur transition-colors hover:border-primary/40"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-muted/60 text-muted-foreground transition-all group-hover:border-primary/40 group-hover:text-primary group-hover:shadow-[0_0_24px_-6px_var(--primary)]">
-                <n.icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span className="text-sm font-medium text-foreground">{n.label}</span>
+              <Image
+                src={n.image}
+                alt={n.label}
+                fill
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <span className="relative text-sm font-semibold text-white">{n.label}</span>
             </div>
           ))}
         </div>
@@ -54,3 +82,4 @@ export function Niches() {
     </section>
   )
 }
+
