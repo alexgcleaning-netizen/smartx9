@@ -4,6 +4,7 @@ import { SOCIALS } from '@/lib/site'
 import profilePhoto from '@/images/profile photo.jpeg'
 import testimonialShotOne from '@/images/testimonials (1).jpg'
 import testimonialShotTwo from '@/images/testimonials (2).jpg'
+import testimonialShotThree from '@/images/testimonials (3).jpg'
 
 type IconProps = { className?: string }
 
@@ -63,8 +64,9 @@ function LinkedinIcon({ className }: IconProps) {
 }
 
 const RECOMMENDATIONS = [
-  { src: testimonialShotOne, alt: 'Written client recommendation — Daniel Rathbone' },
-  { src: testimonialShotTwo, alt: 'Written client recommendation — Jose Barraza' },
+  { src: testimonialShotOne, alt: 'Written client recommendation — Daniel Rathbone', delay: '0s' },
+  { src: testimonialShotTwo, alt: 'Written client recommendation — Jose Barraza', delay: '1.2s' },
+  { src: testimonialShotThree, alt: 'Written client recommendation — Emily Graves', delay: '2.4s' },
 ]
 
 const BIO = [
@@ -91,7 +93,8 @@ export function Testimonials() {
             {RECOMMENDATIONS.map((r) => (
               <figure
                 key={r.alt}
-                className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-3 transition-colors hover:border-primary/40"
+                className="animate-float-drift overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-3 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.7)] transition-all hover:border-primary/40 hover:shadow-[0_0_30px_-6px_rgba(168,85,247,0.4)]"
+                style={{ animationDelay: r.delay }}
               >
                 <Image src={r.src} alt={r.alt} className="h-auto w-full rounded-xl" />
               </figure>
