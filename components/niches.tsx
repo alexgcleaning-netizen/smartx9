@@ -53,15 +53,21 @@ export function Niches() {
     <section className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Made for local jobs
-          </p>
-          <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-            One tool, every kind of job.
+          <h2 className="text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
+            One System. Every Local Niche.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            If being fast wins you the customer, SMART X9 fits. Same tool, set up for your
-            kind of work.
+            We set up this exact system for any local business. But we have one strict rule:
+          </p>
+          <p className="mt-6 text-lg font-bold text-white sm:text-xl">
+            We only take 1 business per niche in each city.
+          </p>
+          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+            If a cleaner or roofer in your city hires us first, we lock out every other cleaner
+            or roofer in your area.
+          </p>
+          <p className="mt-4 text-base font-semibold text-primary">
+            Act fast before your top competitor claims your spot.
           </p>
         </div>
 
