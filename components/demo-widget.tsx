@@ -88,15 +88,14 @@ export function DemoWidget() {
       <div className="relative mx-auto grid max-w-5xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan">
-            Live demo · Cleaning
+            Live Demo · ABC Cleaning Company
           </p>
           <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-            Get an instant cleaning quote — unlock your price.
+            Get An Instant Quote — Unlock Your Price In 33 Seconds
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Pick your cleaning job and see a price appear on the spot. This is exactly what your
-            customers experience — and the second they unlock it, a WhatsApp alert fires straight
-            to your phone.
+            Test our instant lead engine right now. See how your website visitors turn into booked
+            jobs before your competitors even answer the phone.
           </p>
           <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
             {['Built for cleaning businesses', 'Instant on-screen estimate', 'You get notified in under 60 seconds'].map(
