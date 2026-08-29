@@ -22,11 +22,11 @@ export function Hero() {
             We Will Turn Your Website Into An Automated Lead Capture Engine
           </span>
 
-          <h1 className="mt-6 text-balance font-serif text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            How many new{' '}
-            <span className="font-black text-primary">clients</span> did your{' '}
-            <span className="font-black text-primary">website</span> bring you
-            this month?
+          <h1 className="mt-6 text-balance font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            How many{' '}
+            <span className="font-black text-primary">new clients</span> did{' '}
+            <span className="font-black text-primary">your website</span> bring
+            you this month?
           </h1>
 
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
