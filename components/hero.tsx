@@ -1,6 +1,11 @@
 import { MessageCircle, PlayCircle } from 'lucide-react'
+import Image from 'next/image'
 import { CONTACT } from '@/lib/site'
 import { PhoneAlert } from './phone-alert'
+import img1 from '@/images/1.png'
+import img2 from '@/images/2.png'
+import img3 from '@/images/3.png'
+import img4 from '@/images/4.png'
 
 export function Hero() {
   return (
@@ -22,12 +27,27 @@ export function Hero() {
             We Will Turn Your Website Into An Automated Lead Capture Engine
           </span>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            How many{' '}
-            <span className="font-black text-primary">new clients</span> did{' '}
-            <span className="font-black text-primary">your website</span> bring
-            you this month?
-          </h1>
+          <div className="mt-6 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <h1 className="max-w-2xl text-balance font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              How many{' '}
+              <span className="font-black text-primary">new clients</span> did{' '}
+              <span className="font-black text-primary">your website</span> bring
+              you this month?
+            </h1>
+
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+              {[img1, img2, img3, img4].map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`Hero image ${i + 1}`}
+                  width={1600}
+                  height={800}
+                  className="h-10 w-20 rounded-lg border border-border object-cover shadow-[0_0_16px_-4px_var(--primary)] sm:h-14 sm:w-28"
+                />
+              ))}
+            </div>
+          </div>
 
           <div className="mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
             <p className="leading-relaxed">
