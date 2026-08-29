@@ -126,6 +126,16 @@
   }
 }
 
+@keyframes float-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
 .animate-ping-slow {
   animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
@@ -136,4 +146,8 @@
 
 .animate-float-bob {
   animation: float-bob 4s ease-in-out infinite;
+}
+
+.animate-float-drift {
+  animation: float-drift 7s ease-in-out infinite;
 }

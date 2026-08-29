@@ -1,7 +1,6 @@
 import { MessageCircle, PlayCircle } from 'lucide-react'
 import Image from 'next/image'
 import { CONTACT } from '@/lib/site'
-import { PhoneAlert } from './phone-alert'
 import img1 from '@/images/1.png'
 import img2 from '@/images/2.png'
 import img3 from '@/images/3.png'
@@ -27,26 +26,13 @@ export function Hero() {
             We Will Turn Your Website Into An Automated Lead Capture Engine
           </span>
 
-          <div className="mt-6 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mt-6">
             <h1 className="max-w-2xl text-balance font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
               How many{' '}
               <span className="font-black text-primary">new clients</span> did{' '}
               <span className="font-black text-primary">your website</span> bring
               you this month?
             </h1>
-
-            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-              {[img1, img2, img3, img4].map((src, i) => (
-                <Image
-                  key={i}
-                  src={src}
-                  alt={`Hero image ${i + 1}`}
-                  width={1600}
-                  height={800}
-                  className="h-10 w-20 rounded-lg border border-border object-cover shadow-[0_0_16px_-4px_var(--primary)] sm:h-14 sm:w-28"
-                />
-              ))}
-            </div>
           </div>
 
           <div className="mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
@@ -95,7 +81,40 @@ export function Hero() {
         </div>
 
         <div className="animate-float-in [animation-delay:120ms]">
-          <PhoneAlert />
+          <div className="grid grid-cols-2 gap-4 sm:gap-5">
+            <div className="flex flex-col gap-4 sm:gap-5">
+              <Image
+                src={img1}
+                alt="Hero image 1"
+                width={1600}
+                height={800}
+                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:0s]"
+              />
+              <Image
+                src={img2}
+                alt="Hero image 2"
+                width={1600}
+                height={800}
+                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:1.75s]"
+              />
+            </div>
+            <div className="flex flex-col gap-4 sm:gap-5 lg:mt-12">
+              <Image
+                src={img3}
+                alt="Hero image 3"
+                width={1600}
+                height={800}
+                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:0.85s]"
+              />
+              <Image
+                src={img4}
+                alt="Hero image 4"
+                width={1600}
+                height={800}
+                className="animate-float-drift aspect-[2/1] w-full rounded-2xl border border-border object-cover shadow-[0_20px_40px_-12px_rgba(124,58,237,0.45),0_8px_24px_-6px_rgba(0,0,0,0.6)] [animation-delay:2.6s]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
