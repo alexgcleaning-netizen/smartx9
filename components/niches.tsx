@@ -1,6 +1,8 @@
 import Image, { type StaticImageData } from 'next/image'
 import { Plus } from 'lucide-react'
 
+import { CityChecker } from '@/components/city-checker'
+
 import hvacImg from '@/images/hvac and heating.jpg'
 import junkRemovalImg from '@/images/junk removal.jpg'
 import plumbingImg from '@/images/plumbing.jpg'
@@ -69,6 +71,7 @@ export function Niches() {
           <p className="mt-4 text-base font-semibold text-primary">
             Act fast before your top competitor claims your spot.
           </p>
+          <CityChecker />
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4">

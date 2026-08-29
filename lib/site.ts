@@ -7,6 +7,11 @@ export const CONTACT = {
   linkedin: 'https://www.linkedin.com/company/your-company',
 }
 
+// Build a wa.me click-to-chat link with a custom pre-filled message.
+export function whatsappLink(message: string) {
+  return `https://wa.me/94786377869?text=${encodeURIComponent(message)}`
+}
+
 export const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Pricing', href: '#pricing' },
