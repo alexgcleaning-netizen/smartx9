@@ -1,4 +1,4 @@
-import { FileText, Calculator, CalendarCheck, BellRing } from 'lucide-react'
+import { FileText, Calculator, CalendarCheck, BellRing, PlayCircle } from 'lucide-react'
 
 const STEPS = [
   {
@@ -89,6 +89,15 @@ export function HowItWorks() {
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+              {step.step === '02' && (
+                <a
+                  href="#demo"
+                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-[#07120c] shadow-[0_0_20px_-4px_rgba(37,211,102,0.7)] transition-transform hover:scale-[1.03]"
+                >
+                  <PlayCircle className="h-4 w-4" aria-hidden="true" />
+                  Want to see how it works?
+                </a>
+              )}
             </li>
           ))}
         </ol>
