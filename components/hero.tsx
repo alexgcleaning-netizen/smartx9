@@ -29,22 +29,15 @@ export function Hero() {
             you this month?
           </h1>
 
-          <div className="mx-auto mt-6 max-w-2xl space-y-3 text-base text-slate-300 sm:text-lg">
-            <p>
+          <div className="mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
+            <p className="leading-relaxed">
               <span className="font-semibold text-white">Harvard Business Review</span> found a
-              brutal fact!
-            </p>
-            <p>
-              <span className="font-bold text-white">70% of local websites</span> get{' '}
-              <span className="font-bold text-white">zero traffic</span> from Google.
-            </p>
-            <p>
-              The rest take <span className="font-bold text-white">42 hours to reply</span> to a
-              lead. And <span className="font-bold text-white">23% never reply at all</span>.
-            </p>
-            <p>
-              This is why <span className="font-bold text-white">9 out of 10 visitors leave</span>{' '}
-              your site and <span className="font-bold text-white">pay your competitor instead</span>.
+              brutal fact! <span className="font-bold text-white">70% of local websites</span> get{' '}
+              <span className="font-bold text-white">zero traffic</span> from Google. The rest take{' '}
+              <span className="font-bold text-white">42 hours to reply</span> to a lead. And{' '}
+              <span className="font-bold text-white">23% never reply at all</span>. This is why{' '}
+              <span className="font-bold text-white">9 out of 10 visitors leave</span> your site and{' '}
+              <span className="font-bold text-white">pay your competitor instead</span>.
             </p>
           </div>
 
