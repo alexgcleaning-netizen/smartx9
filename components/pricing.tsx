@@ -4,7 +4,8 @@ import { CONTACT } from '@/lib/site'
 const STARTER_FEATURES = [
   'High-Speed Local Website',
   '33-Second Price Calculator',
-  'Instant WhatsApp & SMS Phone Pings',
+  'Automated Booking Integration',
+  'Instant Notifications & SMS Phone Pings',
   'Auto 5-Star Google Review Generator',
   'Automated Lead Vault',
   '100% Done-For-You Setup',

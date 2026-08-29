@@ -148,7 +148,6 @@ export function CityChecker() {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. John Silva"
                       className={inputClass}
-                      disabled={step === 'scanning'}
                     />
                   </div>
 
@@ -164,7 +163,6 @@ export function CityChecker() {
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder="e.g. Silva Roofing LLC"
                       className={inputClass}
-                      disabled={step === 'scanning'}
                     />
                   </div>
 
@@ -178,7 +176,6 @@ export function CityChecker() {
                       value={niche}
                       onChange={(e) => setNiche(e.target.value)}
                       className={`${inputClass} appearance-none`}
-                      disabled={step === 'scanning'}
                     >
                       <option value="" disabled className="bg-slate-900">
                         Select your niche
@@ -203,7 +200,6 @@ export function CityChecker() {
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="e.g. Austin"
                       className={inputClass}
-                      disabled={step === 'scanning'}
                     />
                   </div>
 
