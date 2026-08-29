@@ -29,11 +29,24 @@ export function Hero() {
             you this month?
           </h1>
 
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            SMART X9 turns website visitors into paid jobs. When someone asks for a price,
-            your phone gets a WhatsApp ping right away — so you can call them back in
-            minutes, not hours.
-          </p>
+          <div className="mx-auto mt-6 max-w-2xl space-y-3 text-base text-slate-300 sm:text-lg">
+            <p>
+              <span className="font-semibold text-white">Harvard Business Review</span> found a
+              brutal fact!
+            </p>
+            <p>
+              <span className="font-bold text-white">70% of local websites</span> get{' '}
+              <span className="font-bold text-white">zero traffic</span> from Google.
+            </p>
+            <p>
+              The rest take <span className="font-bold text-white">42 hours to reply</span> to a
+              lead. And <span className="font-bold text-white">23% never reply at all</span>.
+            </p>
+            <p>
+              This is why <span className="font-bold text-white">9 out of 10 visitors leave</span>{' '}
+              your site and <span className="font-bold text-white">pay your competitor instead</span>.
+            </p>
+          </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
