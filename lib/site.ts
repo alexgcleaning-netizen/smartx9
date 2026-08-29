@@ -7,6 +7,14 @@ export const CONTACT = {
   linkedin: 'https://www.linkedin.com/company/your-company',
 }
 
+// Social profiles shown in the founder card (testimonials section).
+// Swap these placeholder URLs for the real profiles.
+export const SOCIALS = {
+  instagram: 'https://www.instagram.com/your-instagram',
+  facebook: 'https://www.facebook.com/your-facebook',
+  linkedin: 'https://www.linkedin.com/in/your-linkedin',
+}
+
 // Build a wa.me click-to-chat link with a custom pre-filled message.
 export function whatsappLink(message: string) {
   return `https://wa.me/94786377869?text=${encodeURIComponent(message)}`

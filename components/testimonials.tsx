@@ -1,89 +1,160 @@
-'use client'
+import Image from 'next/image'
+import { BadgeCheck } from 'lucide-react'
+import { SOCIALS } from '@/lib/site'
+import profilePhoto from '@/images/profile photo.jpeg'
+import testimonialShotOne from '@/images/testimonials (1).jpg'
+import testimonialShotTwo from '@/images/testimonials (2).jpg'
 
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
+type IconProps = { className?: string }
 
-const TESTIMONIALS = [
-  {
-    quote:
-      'Placeholder testimonial — replace with a real client quote. Keep it specific: what changed, how fast, and the result they felt.',
-    name: 'Client Name',
-    role: 'Owner, Roofing Co.',
-  },
-  {
-    quote:
-      'Placeholder testimonial — a second voice from a different niche builds trust. Short, punchy, and outcome-focused works best.',
-    name: 'Client Name',
-    role: 'Founder, Cleaning Services',
-  },
-  {
-    quote:
-      'Placeholder testimonial — mention the WhatsApp alerts or speed-to-lead directly to reinforce the core promise.',
-    name: 'Client Name',
-    role: 'Director, Restoration Group',
-  },
+function InstagramIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
+
+function FacebookIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  )
+}
+
+function LinkedinIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  )
+}
+
+const RECOMMENDATIONS = [
+  { src: testimonialShotOne, alt: 'Written client recommendation — Daniel Rathbone' },
+  { src: testimonialShotTwo, alt: 'Written client recommendation — Jose Barraza' },
+]
+
+const BIO = [
+  'It started with a simple observation: in every market he studied, the business that answered first almost always won the job — no matter the price, the reviews, or how nice the website looked.',
+  'Ruchith is an undergraduate scholar in the Department of Finance at the University of Colombo, an active venture-builder, and a growth strategist with over 9 years of hands-on experience scaling international client revenues. Driven by a deep passion for learning, online marketing, and high-ROI investments, he builds and scales high-performance business systems alongside his academic pursuits.',
+  'Every automated workflow, every line of high-converting copy, and every instant alert engine he ships is engineered for one purpose — turning website visitors into predictable revenue, with all the technical complexity kept invisible to the local business owner.',
 ]
 
 export function Testimonials() {
-  const [i, setI] = useState(0)
-  const t = TESTIMONIALS[i]
-
-  const prev = () => setI((v) => (v - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
-  const next = () => setI((v) => (v + 1) % TESTIMONIALS.length)
-
   return (
     <section className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-          Testimonials
-        </p>
-        <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-          What owners say.
-        </h2>
-
-        <div className="mt-12 rounded-3xl border border-border bg-card/60 p-8 backdrop-blur sm:p-12">
-          <Quote className="mx-auto h-8 w-8 text-primary" aria-hidden="true" />
-          <blockquote className="mt-6 text-balance font-serif text-xl leading-relaxed text-foreground sm:text-2xl">
-            &ldquo;{t.quote}&rdquo;
-          </blockquote>
-          <div className="mt-6">
-            <p className="font-medium text-foreground">{t.name}</p>
-            <p className="text-sm text-muted-foreground">{t.role}</p>
-          </div>
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Testimonials
+          </p>
+          <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
+            What owners say.
+          </h2>
         </div>
 
-        <div className="mt-6 flex items-center justify-center gap-4">
-          <button
-            type="button"
-            onClick={prev}
-            aria-label="Previous testimonial"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <div className="flex gap-2" role="tablist" aria-label="Select testimonial">
-            {TESTIMONIALS.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                role="tab"
-                aria-selected={idx === i}
-                aria-label={`Testimonial ${idx + 1}`}
-                onClick={() => setI(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === i ? 'w-6 bg-primary' : 'w-2 bg-border hover:bg-muted-foreground/50'
-                }`}
-              />
+        <div className="mt-12 grid items-start gap-6 lg:grid-cols-5">
+          <div className="space-y-4 lg:col-span-3">
+            {RECOMMENDATIONS.map((r) => (
+              <figure
+                key={r.alt}
+                className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-3 transition-colors hover:border-primary/40"
+              >
+                <Image src={r.src} alt={r.alt} className="h-auto w-full rounded-xl" />
+              </figure>
             ))}
           </div>
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Next testimonial"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 text-center sm:p-8 lg:col-span-2">
+            <div className="mx-auto w-fit">
+              <Image
+                src={profilePhoto}
+                alt="Ruchith Samudika — Founder & Lead Systems Engineer of SMART X9"
+                className="h-24 w-24 rounded-full object-cover shadow-[0_0_30px_rgba(168,85,247,0.45)] ring-2 ring-primary/60"
+              />
+            </div>
+            <h3 className="mt-5 flex items-center justify-center gap-2 text-xl font-bold text-white">
+              Ruchith Samudika
+              <BadgeCheck className="h-5 w-5 text-[#25D366]" aria-hidden="true" />
+            </h3>
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#25D366]">
+              Founder &amp; Lead Systems Engineer
+            </p>
+
+            <div className="mt-5 space-y-3 text-left">
+              {BIO.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 24)}
+                  className="text-[11px] leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col items-stretch gap-3">
+              <a
+                href={SOCIALS.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-950/60 px-4 py-2 text-xs font-semibold text-slate-300 transition-all hover:border-[#25D366]/60 hover:text-white hover:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                Instagram
+              </a>
+              <a
+                href={SOCIALS.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-950/60 px-4 py-2 text-xs font-semibold text-slate-300 transition-all hover:border-[#25D366]/60 hover:text-white hover:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
+              >
+                <FacebookIcon className="h-4 w-4" />
+                Facebook
+              </a>
+              <a
+                href={SOCIALS.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-950/60 px-4 py-2 text-xs font-semibold text-slate-300 transition-all hover:border-[#25D366]/60 hover:text-white hover:shadow-[0_0_18px_rgba(37,211,102,0.35)]"
+              >
+                <LinkedinIcon className="h-4 w-4" />
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
