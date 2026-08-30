@@ -1,18 +1,17 @@
-// Central place for contact links. Swap these placeholders for real values later.
+// Central place for contact links.
 export const CONTACT = {
   // wa.me click-to-chat with a pre-filled message
   whatsapp:
     'https://wa.me/94786377869?text=Hi%20SMART%20X9%2C%20I%27d%20like%20to%20see%20a%20demo',
-  messenger: 'https://m.me/your-page',
-  linkedin: 'https://www.linkedin.com/company/your-company',
+  messenger: 'https://m.me/team.smartx9',
+  linkedin: 'https://www.linkedin.com/in/ruchith-samudika-83a773252',
 }
 
 // Social profiles shown in the founder card (testimonials section).
-// Swap these placeholder URLs for the real profiles.
 export const SOCIALS = {
-  instagram: 'https://www.instagram.com/your-instagram',
-  facebook: 'https://www.facebook.com/your-facebook',
-  linkedin: 'https://www.linkedin.com/in/your-linkedin',
+  instagram: 'https://www.instagram.com/samudika9',
+  facebook: 'https://www.facebook.com/team.smartx9',
+  linkedin: 'https://www.linkedin.com/in/ruchith-samudika-83a773252',
 }
 
 // Build a wa.me click-to-chat link with a custom pre-filled message.
@@ -28,5 +27,4 @@ export const NAV_LINKS = [
 ]
 
 // Facebook group community (bonus offer CTA in the hero).
-// Swap this placeholder URL for the real group invite link.
-export const FACEBOOK_GROUP = 'https://www.facebook.com/groups/your-group'
+export const FACEBOOK_GROUP = 'https://www.facebook.com/share/g/1MSEfcFg13/'
