@@ -1,20 +1,23 @@
-import { Clock, TrendingDown, PhoneOff } from 'lucide-react'
+import { CheckCircle2, FileText, MessageCircle } from 'lucide-react'
 
-const STATS = [
+const STEPS = [
   {
-    icon: TrendingDown,
-    value: '78%',
-    label: 'of clients pay the local business that answers first, quotes first, and calls back first.',
+    icon: FileText,
+    step: '01',
+    title: 'Review the page',
+    body: 'Check out the features, test the demo, and check your city.',
   },
   {
-    icon: Clock,
-    value: '5 min',
-    label: 'is all you get. Wait longer and your chance to win drops 10x.',
+    icon: MessageCircle,
+    step: '02',
+    title: 'Send a 1-line chat',
+    body: 'Click to message us directly on WhatsApp or Messenger.',
   },
   {
-    icon: PhoneOff,
-    value: '48%',
-    label: 'of new customers never get a call back. That is money walking out the door.',
+    icon: CheckCircle2,
+    step: '03',
+    title: 'We do the work',
+    body: 'Our team replies instantly in chat and handles 100% of your setup for you.',
   },
 ]
 
@@ -24,24 +27,28 @@ export function Problem() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-            Customers don&apos;t wait. They text the next{' '}
-            <span className="text-secondary">three</span> local businesses too.
+            No Sales Calls. No Pushy Pitches. No{' '}
+            <span className="text-secondary">$1,000</span> Contracts.
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Being fast is the whole game. The local business that answers first almost always wins
-            the job — no matter the price, the reviews, or how nice the website looks.
+            We won&apos;t waste your time with 45-minute booking calls or high-pressure phone
+            pitches. Everything we build, offer, and charge is 100% transparent right here on this
+            page.
           </p>
         </div>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-3">
-          {STATS.map((s) => (
+          {STEPS.map((s) => (
             <div
-              key={s.value}
+              key={s.step}
               className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur transition-colors hover:border-primary/40"
             >
               <s.icon className="h-6 w-6 text-secondary" aria-hidden="true" />
-              <p className="mt-4 font-mono text-4xl font-bold text-foreground">{s.value}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.label}</p>
+              <p className="mt-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-foreground/40">
+                {s.step}
+              </p>
+              <h3 className="mt-2 font-serif text-lg font-semibold text-foreground">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
             </div>
           ))}
         </div>
