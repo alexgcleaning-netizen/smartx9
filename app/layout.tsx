@@ -18,9 +18,15 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'SMART X9 — Speed-to-Lead systems for local service businesses',
+  title: 'Turn Your Dead Website Into A 24/7 Leads Capture Engine',
   description:
-    'SMART X9 turns website visitors into booked jobs. Instant quote forms, WhatsApp lead alerts, and callbacks in minutes — so you win the leads your competitors are too slow to answer.',
+    'Turn random site visitors into paid jobs while you sleep. Instant SMS alerts & 1-second site for $20/mo. 1 City. 1 Niche. 1 Partner. Claim your spot now.',
+  openGraph: {
+    title: 'Turn Your Dead Website Into A 24/7 Leads Capture Engine',
+    description:
+      'Turn random site visitors into paid jobs while you sleep. Complete technical setup, instant SMS alerts, and a 1-second site for just $20/mo. 1 City. 1 Niche. 1 Partner. Claim your spot.',
+    type: 'website',
+  },
   generator: 'v0.app',
 }
 
