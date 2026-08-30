@@ -1,5 +1,5 @@
-import { MessageCircle, PlayCircle } from 'lucide-react'
-import { CONTACT } from '@/lib/site'
+import { Gift, MessageCircle, Send } from 'lucide-react'
+import { CONTACT, FACEBOOK_GROUP } from '@/lib/site'
 import { NotificationCards } from './notification-cards'
 
 export function Hero() {
@@ -50,37 +50,43 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
+            <p className="text-lg font-semibold text-white sm:text-xl">
+              Want to be that <span className="text-primary">top 1%</span>?
+            </p>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground shadow-[0_0_36px_-6px_var(--primary)] transition-transform hover:scale-[1.03]"
+              >
+                <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                Message us on WhatsApp
+              </a>
+              <a
+                href={CONTACT.messenger}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/40 px-6 py-3.5 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-muted"
+              >
+                <Send className="h-5 w-5 text-cyan" aria-hidden="true" />
+                Message us on Messenger
+              </a>
+            </div>
             <a
-              href={CONTACT.whatsapp}
+              href={FACEBOOK_GROUP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground shadow-[0_0_36px_-6px_var(--primary)] transition-transform hover:scale-[1.03]"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10 sm:w-auto"
             >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Start on WhatsApp
-            </a>
-            <a
-              href="#demo"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/40 px-6 py-3.5 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-muted"
-            >
-              <PlayCircle className="h-5 w-5 text-cyan" aria-hidden="true" />
-              See it work
+              <Gift className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+              <span>
+                BONUS: Join our Facebook group community —{' '}
+                <span className="font-bold text-primary">$99 value, free</span>
+              </span>
             </a>
           </div>
-
-          <dl className="mt-10 grid max-w-md grid-cols-3 gap-4">
-            {[
-              { v: '<60s', l: 'to first ping' },
-              { v: '5x', l: 'more jobs won' },
-              { v: '24/7', l: 'always working' },
-            ].map((s) => (
-              <div key={s.l}>
-                <dt className="font-mono text-2xl font-bold text-foreground">{s.v}</dt>
-                <dd className="mt-1 text-xs text-muted-foreground">{s.l}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
         <div className="animate-float-in [animation-delay:120ms]">

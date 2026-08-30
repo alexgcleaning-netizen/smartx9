@@ -26,3 +26,7 @@ export const NAV_LINKS = [
   { label: 'Results', href: '#results' },
   { label: 'FAQ', href: '#faq' },
 ]
+
+// Facebook group community (bonus offer CTA in the hero).
+// Swap this placeholder URL for the real group invite link.
+export const FACEBOOK_GROUP = 'https://www.facebook.com/groups/your-group'
