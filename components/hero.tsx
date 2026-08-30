@@ -1,4 +1,4 @@
-import { Gift, Lock, MessageCircle, PlayCircle, Send, Zap } from 'lucide-react'
+import { Gift, MessageCircle, PlayCircle, Send } from 'lucide-react'
 import { CONTACT, FACEBOOK_GROUP } from '@/lib/site'
 import { NotificationCards } from './notification-cards'
 
@@ -17,32 +17,36 @@ export function Hero() {
       <div aria-hidden="true" className="grid-texture absolute inset-0 opacity-60" />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
-        <div className="animate-float-in text-center">
-          <h1 className="mx-auto max-w-3xl text-balance font-display text-3xl font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-6xl">
-            Turn Your Zero Visitors Website Into A{' '}
-            <span className="text-primary">24/7 Lead-Capture Engine.</span>
-          </h1>
+        <div className="animate-float-in">
+          <span className="animate-float-bob inline-flex flex-wrap items-center justify-center rounded-full border border-border bg-muted/60 px-3.5 py-1.5 text-center text-sm font-medium text-muted-foreground backdrop-blur">
+            We Will Turn Your Website Into An Automated Lead Capture Engine
+          </span>
 
-          <div className="mx-auto mt-6 max-w-3xl space-y-4">
-            <p className="text-lg leading-relaxed text-slate-300 sm:text-xl">
-              Turn random website visitors into paid jobs while you sleep. Complete done-for-you
-              setup, instant phone alerts, and a 1-second high-speed site for just{' '}
-              <span className="font-bold text-[#25D366]">$20/mo</span>.
+          <div className="mt-6">
+            <h1 className="max-w-2xl text-balance font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              How many{' '}
+              <span className="font-black text-primary">new clients</span> did{' '}
+              <span className="font-black text-primary">your website</span> bring
+              you this month?
+            </h1>
+          </div>
+
+          <div className="space-y-4 mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
+            <p className="leading-relaxed">
+              <span className="font-semibold text-white">Harvard Business Review</span> revealed two
+              brutal facts about local businesses&rsquo; websites:{' '}
+              <span className="font-bold text-white">96% get zero traffic</span> from Google, and of
+              the few that actually receive leads,{' '}
+              <span className="font-bold text-white">23% never reply</span> while the rest take an
+              average of <span className="font-bold text-white">42 hours</span> to respond. Only{' '}
+              <span className="font-bold text-white">1% of businesses reply within 5 minutes</span>
+              —giving them a <span className="font-bold text-white">90% chance to win the client</span>.
             </p>
-
-            <div className="inline-block rounded-xl border border-slate-800 bg-slate-900/90 px-4 py-2 shadow-lg">
-              <p className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-bold text-white sm:text-base">
-                <Lock className="h-4 w-4 shrink-0 text-[#25D366]" aria-hidden="true" />
-                <span>
-                  <span className="text-[#25D366]">1 City. 1 Niche. 1 Partner.</span> We build your
-                  engine so you answer first every time.
-                </span>
-              </p>
-            </div>
-
-            <p className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.4)] sm:text-sm">
-              <Zap className="h-4 w-4 shrink-0" aria-hidden="true" />
-              Act before your local competitor claims your spot.
+            <p className="leading-relaxed">
+              Our system puts your business directly inside that{' '}
+              <span className="font-bold text-white [text-shadow:0_0_8px_rgba(168,85,247,0.9)] [box-shadow:inset_0_-2px_0_rgba(168,85,247,1),0_0_10px_rgba(168,85,247,0.55)]">
+                top 1%
+              </span>.
             </p>
           </div>
 
@@ -55,7 +59,7 @@ export function Hero() {
               ?{' '}
               <span className="animate-shine-text font-bold">Let&apos;s Chat</span>
             </p>
-            <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#how-it-works"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-[0_0_24px_-6px_var(--primary)] transition-transform hover:scale-[1.03]"
