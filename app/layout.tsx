@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark bg-background ${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`dark scroll-smooth bg-background ${inter.variable} ${montserrat.variable}`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

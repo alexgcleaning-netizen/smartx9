@@ -1,4 +1,4 @@
-import { Gift, MessageCircle, Send } from 'lucide-react'
+import { Gift, MessageCircle, PlayCircle, Send } from 'lucide-react'
 import { CONTACT, FACEBOOK_GROUP } from '@/lib/site'
 import { NotificationCards } from './notification-cards'
 
@@ -54,7 +54,7 @@ export function Hero() {
             <p className="text-lg font-semibold text-white sm:text-xl">
               Want to be that <span className="text-primary">top 1%</span>?
             </p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={CONTACT.whatsapp}
                 target="_blank"
@@ -72,6 +72,13 @@ export function Hero() {
               >
                 <Send className="h-5 w-5 text-cyan" aria-hidden="true" />
                 Message us on Messenger
+              </a>
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/40 px-6 py-3.5 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-muted"
+              >
+                <PlayCircle className="h-5 w-5 text-cyan" aria-hidden="true" />
+                How it works
               </a>
             </div>
             <a
