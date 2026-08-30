@@ -78,7 +78,7 @@ export function Hero() {
               href={FACEBOOK_GROUP}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10 sm:w-auto"
+              className="animate-bonus-glow mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10 sm:w-auto"
             >
               <Gift className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
               <span>
