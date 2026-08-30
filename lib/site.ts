@@ -2,7 +2,7 @@
 export const CONTACT = {
   // wa.me click-to-chat with a pre-filled message
   whatsapp:
-    'https://wa.me/94786377869?text=Hi%20SMART%20X9%2C%20I%27d%20like%20to%20see%20a%20demo',
+    'https://wa.me/94786377869?text=Hey%20I%27m%20interested%21%20I%20want%20to%20make%20my%20website%20with%20your%20system.',
   messenger: 'https://m.me/team.smartx9',
   linkedin: 'https://www.linkedin.com/in/ruchith-samudika-83a773252',
 }
