@@ -1,4 +1,4 @@
-import { MessageCircle, ArrowRight } from 'lucide-react'
+import { MessageCircle, Send, PlayCircle, ArrowRight } from 'lucide-react'
 import { CONTACT } from '@/lib/site'
 
 export function FinalCta() {
@@ -15,28 +15,38 @@ export function FinalCta() {
         />
         <div className="relative">
           <h2 className="mx-auto max-w-2xl text-balance font-serif text-3xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-            Stop losing jobs to whoever answers first. Be first.
+            Turn Your Zero Visitors Website Into A 24/7 Booking Engine.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty leading-relaxed text-primary-foreground/85">
-            Get the Speed-to-Lead system live and turn your website into a booking machine.
-            Message us and we&apos;ll map it to your business today.
+            Grab our $20/mo launch deal before your top local competitor locks you out. No sales
+            calls required—just text us on WhatsApp or Messenger to start.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={CONTACT.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-background px-6 py-3.5 text-base font-medium text-foreground transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-[#07120c] shadow-[0_0_24px_-4px_rgba(37,211,102,0.7)] transition-transform hover:scale-[1.03]"
             >
-              <MessageCircle className="h-5 w-5 text-primary" aria-hidden="true" />
-              Start on WhatsApp
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              Lock In $20/mo Deal On WhatsApp
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href={CONTACT.messenger}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#00B2FF] to-[#006AFF] px-6 py-3.5 text-base font-semibold text-white shadow-[0_0_24px_-4px_rgba(0,132,255,0.7)] transition-transform hover:scale-[1.03]"
+            >
+              <Send className="h-5 w-5" aria-hidden="true" />
+              Messenger
             </a>
             <a
               href="#demo"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary-foreground/30 px-6 py-3.5 text-base font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Try the live demo
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              <PlayCircle className="h-5 w-5" aria-hidden="true" />
+              Try The Live Demo First
             </a>
           </div>
         </div>
