@@ -53,7 +53,7 @@ export function Hero() {
           <div className="mt-8">
             <p className="text-lg font-semibold text-white sm:text-xl">
               Want to be that{' '}
-              <span className="text-primary [text-shadow:0_0_8px_rgba(168,85,247,0.9)] [box-shadow:inset_0_-3px_0_rgba(168,85,247,1),0_0_10px_rgba(168,85,247,0.55)]">
+              <span className="text-white [text-shadow:0_0_8px_rgba(168,85,247,0.9)] [box-shadow:inset_0_-3px_0_rgba(168,85,247,1),0_0_10px_rgba(168,85,247,0.55)]">
                 Top 1%
               </span>
               ?{' '}
