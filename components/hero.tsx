@@ -93,8 +93,8 @@ export function Hero() {
               >
                 <Gift className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                 <span>
-                  Join FREE our Facebook Group Community —{' '}
-                  <span className="font-bold text-primary">$99 Value</span>
+                  Claim FREE Access To Our Facebook Group (
+                  <span className="font-bold text-primary">$99 Value</span>)
                 </span>
               </a>
             </div>
