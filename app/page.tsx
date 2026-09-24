@@ -18,6 +18,7 @@ export default function Page() {
       <SiteNav />
       <main>
         <Hero />
+        <Testimonials />
         <Problem />
         <HowItWorks />
         <DemoWidget />
@@ -25,7 +26,6 @@ export default function Page() {
         <WhatsIncluded />
         <Pricing />
         <Results />
-        <Testimonials />
         <Faq />
         <FinalCta />
       </main>
