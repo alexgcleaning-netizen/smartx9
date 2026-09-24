@@ -28,3 +28,10 @@ export const NAV_LINKS = [
 
 // Facebook group community (bonus offer CTA in the hero).
 export const FACEBOOK_GROUP = 'https://www.facebook.com/share/g/1MSEfcFg13/'
+
+// ── Web3Forms — "Claim the $20/mo launch deal" form ─────────────────────────
+// Free access key: https://web3forms.com/ (create it with samudikax@gmail.com so
+// submissions land in that inbox). Keys are safe to expose in the browser.
+export const WEB3FORMS_ACCESS_KEY = 'e179aab4-354e-4082-8598-c1dd0dd4382a'
+export const CLAIM_SUBJECT = '🔥 New $20/mo Launch Deal Claim'
+export const CLAIM_FROM_NAME = 'SMART X9 — Deal Claim Form'

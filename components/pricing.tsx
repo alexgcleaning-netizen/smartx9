@@ -1,5 +1,8 @@
+'use client'
+
+import { useState } from 'react'
 import { Check, Lock, MessageCircle } from 'lucide-react'
-import { CONTACT } from '@/lib/site'
+import { ClaimDealForm } from '@/components/claim-deal-form'
 
 const STARTER_FEATURES = [
   'High-Speed Local Website',
@@ -39,6 +42,8 @@ const LOCKED_TIERS = [
 ]
 
 export function Pricing() {
+  const [claimOpen, setClaimOpen] = useState(false)
+
   return (
     <section id="pricing" className="relative py-20 sm:py-28">
       <div
@@ -83,15 +88,14 @@ export function Pricing() {
               ))}
             </ul>
 
-            <a
-              href={CONTACT.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-4 text-base font-bold text-black shadow-[0_0_30px_-6px_rgba(37,211,102,0.8)] transition-transform hover:scale-[1.02]"
+            <button
+              type="button"
+              onClick={() => setClaimOpen(true)}
+              className="mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-4 text-base font-bold text-black shadow-[0_0_30px_-6px_rgba(37,211,102,0.8)] transition-transform hover:scale-[1.02]"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Claim All Features For $20/mo →
-            </a>
+            </button>
           </div>
 
           {/* Locked tiers */}
@@ -131,6 +135,8 @@ export function Pricing() {
           ))}
         </div>
       </div>
+
+      <ClaimDealForm open={claimOpen} onClose={() => setClaimOpen(false)} />
     </section>
   )
 }
