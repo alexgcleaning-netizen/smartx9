@@ -3,7 +3,7 @@ import { CONTACT } from '@/lib/site'
 
 export function FinalCta() {
   return (
-    <section className="relative px-4 py-20 sm:px-6 sm:py-28">
+    <section className="relative px-4 py-14 sm:px-6 sm:py-20">
       <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-primary/40 bg-gradient-to-br from-primary via-[#8b31d9] to-secondary p-10 text-center sm:p-16">
         <div
           aria-hidden="true"

@@ -42,7 +42,7 @@ const FEATURES = [
 
 export function WhatsIncluded() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">

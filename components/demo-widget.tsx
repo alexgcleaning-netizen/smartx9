@@ -80,7 +80,7 @@ export function DemoWidget() {
   }
 
   return (
-    <section id="demo" className="relative py-20 sm:py-28">
+    <section id="demo" className="relative py-14 sm:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[130px]"

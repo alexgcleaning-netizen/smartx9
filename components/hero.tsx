@@ -4,7 +4,7 @@ import { NotificationCards } from './notification-cards'
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <section id="top" className="relative overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20">
       {/* glow blobs */}
       <div
         aria-hidden="true"

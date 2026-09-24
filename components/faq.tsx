@@ -34,7 +34,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative py-20 sm:py-28">
+    <section id="faq" className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">FAQ</p>
