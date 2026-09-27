@@ -18,7 +18,7 @@ export function FinalCta() {
             Turn Your Zero Visitors Website Into A 24/7 Booking Engine.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty leading-relaxed text-primary-foreground/85">
-            Grab our $20/mo launch deal before your top local competitor locks you out. No sales
+            Grab our $17/mo launch deal before your top local competitor locks you out. No sales
             calls required—just text us on WhatsApp or Messenger to start.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
@@ -29,7 +29,7 @@ export function FinalCta() {
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-[#07120c] shadow-[0_0_24px_-4px_rgba(37,211,102,0.7)] transition-transform hover:scale-[1.03]"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Lock In $20/mo Deal On WhatsApp
+              Lock In $17/mo Deal On WhatsApp
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </a>
             <a

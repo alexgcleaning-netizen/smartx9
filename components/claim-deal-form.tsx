@@ -1,18 +1,27 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ArrowRight, CheckCircle2, Loader2, X } from 'lucide-react'
-import { CLAIM_FROM_NAME, CLAIM_SUBJECT, WEB3FORMS_ACCESS_KEY } from '@/lib/site'
+import { ArrowRight, CheckCircle2, Loader2, MessageCircle, X } from 'lucide-react'
+import { CLAIM_FROM_NAME, CLAIM_SUBJECT, WEB3FORMS_ACCESS_KEY, CONTACT } from '@/lib/site'
 
-type Status = 'idle' | 'sending' | 'success' | 'error'
+type Status = 'idle' | 'sending' | 'paypal' | 'error'
 
 const inputClass =
   'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-primary/60 focus:ring-2 focus:ring-primary/30'
 
 const labelClass = 'mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-400'
 
+// ── PayPal Subscriptions — "Claim the $17/mo launch deal" checkout ──────────
+// Official PayPal JS SDK + subscription plan. IDs are safe to expose in the
+// browser; only the plan id is used to create the subscription.
+const PAYPAL_CLIENT_ID =
+  'BAAQxR1L4fWRWWUqpAP13F11zIsbfuwSJdflljFYX2fYCqKDQI1pnvTWS5MCovwV7VI8Svb2-zz5a0cZZA'
+const PAYPAL_PLAN_ID = 'P-3A770749DW147510CNK4ONQA'
+const PAYPAL_CONTAINER_ID = 'paypal-button-container-P-3A770749DW147510CNK4ONQA'
+
 export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [form, setForm] = useState({
+    business_name: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -52,6 +61,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
 
   function validate() {
     const next: Record<string, string> = {}
+    if (form.business_name.trim().length < 2) next.business_name = 'Enter your business name'
     if (form.first_name.trim().length < 2) next.first_name = 'Enter your first name'
     if (form.last_name.trim().length < 2) next.last_name = 'Enter your last name'
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim()))
@@ -84,17 +94,19 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
           // Honeypot — must stay empty, otherwise Web3Forms flags it as spam.
           botcheck: '',
           replyto: form.email.trim(),
+          'Business Name': form.business_name.trim(),
           'First Name': form.first_name.trim(),
           'Last Name': form.last_name.trim(),
           'Email Address': form.email.trim(),
           'Mobile Number': form.mobile.trim(),
           'WhatsApp Number': form.whatsapp.trim() || 'Not provided',
-          'Deal Requested': '$20/mo Starter Launch Offer',
+          'Deal Requested': '$17/mo Starter Launch Offer',
         }),
       })
       const result = await response.json().catch(() => null)
       if (response.ok && result?.success) {
-        setStatus('success')
+        // Step 1 saved — flip to Step 2 (PayPal subscription checkout).
+        setStatus('paypal')
       } else {
         setStatus('error')
         setErrorMessage(
@@ -108,12 +120,96 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
   }
 
   function resetAndClose() {
-    setForm({ first_name: '', last_name: '', email: '', mobile: '', whatsapp: '' })
+    setForm({
+      business_name: '',
+      first_name: '',
+      last_name: '',
+      email: '',
+      mobile: '',
+      whatsapp: '',
+    })
     setErrors({})
     setStatus('idle')
     setErrorMessage('')
     onClose()
   }
+
+  // Lazy-load the official PayPal JS SDK once and resolve when it is ready.
+  let paypalSdkPromise: Promise<void> | null = null
+
+  async function waitForPayPalSdk(timeoutMs = 15_000): Promise<boolean> {
+    if (typeof window === 'undefined' || typeof window.paypal !== 'undefined') {
+      return typeof window !== 'undefined' && typeof window.paypal !== 'undefined'
+    }
+    if (!paypalSdkPromise) {
+      paypalSdkPromise = new Promise((resolve) => {
+        const src = 'https://www.paypal.com/sdk/js?client-id=' + PAYPAL_CLIENT_ID + '&vault=true&intent=subscription'
+        const loaded = () => {
+          const deadline = Date.now() + timeoutMs
+          const poll = () => {
+            if (typeof window.paypal !== 'undefined') return resolve()
+            if (Date.now() > deadline) return resolve()
+            window.setTimeout(poll, 100)
+          }
+          poll()
+        }
+        if (document.querySelector('script[src="' + src + '"]')) {
+          loaded()
+          return
+        }
+        const script = document.createElement('script')
+        script.src = src
+        script.async = true
+        script.dataset.sdkIntegrationSource = 'button-factory'
+        script.onload = loaded
+        script.onerror = loaded
+        document.body.appendChild(script)
+      })
+    }
+    await paypalSdkPromise
+    return typeof window.paypal !== 'undefined'
+  }
+
+  // Step 2 — render the official PayPal subscription button.
+  useEffect(() => {
+    if (status !== 'paypal' || typeof window === 'undefined') return
+
+    let cancelled = false
+
+    async function renderPayPalButtons() {
+      const ready = await waitForPayPalSdk()
+      if (cancelled || !ready || typeof window.paypal === 'undefined') return
+
+      try {
+        window.paypal
+          .Buttons({
+            style: {
+              shape: 'pill',
+              color: 'gold',
+              layout: 'vertical',
+              label: 'subscribe',
+            },
+            createSubscription(_data, actions) {
+              return actions.subscription.create({
+                plan_id: PAYPAL_PLAN_ID,
+              })
+            },
+            onApprove(data, _actions) {
+              window.location.href = 'https://smartx9leads.site/thank-you?sub_id=' + data.subscriptionID
+            },
+          })
+          .render('#' + PAYPAL_CONTAINER_ID)
+      } catch {
+        // SDK failed to render — the WhatsApp fallback link below still works.
+      }
+    }
+
+    void renderPayPalButtons()
+
+    return () => {
+      cancelled = true
+    }
+  }, [status])
 
   if (!open) return null
 
@@ -122,7 +218,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Claim the $20/mo launch deal"
+      aria-label="Claim the $17/mo launch deal"
     >
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetAndClose} />
 
@@ -142,24 +238,39 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
         </button>
 
         <div className="relative max-h-[85vh] overflow-y-auto p-7 sm:p-8">
-          {status === 'success' ? (
+          {status === 'paypal' ? (
             <div className="animate-float-in flex flex-col items-center py-4 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
                 <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
               </span>
               <h3 className="mt-5 font-serif text-2xl font-bold text-white">
-                You&apos;re in, {form.first_name.trim() || 'friend'}!
+                Almost there, {form.first_name.trim() || 'friend'}!
               </h3>
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-slate-400">
-                Your $20/mo launch deal request is in. We&apos;ll reach out soon to confirm your
-                spot and set up your 24/7 lead engine.
+                Your details are saved and your $17/mo lead engine is reserved. Tap the gold
+                button below to securely finish your subscription on PayPal.
               </p>
+
+              <div className="mt-6 w-full" id={PAYPAL_CONTAINER_ID} />
+
+              <p className="mt-3 text-center text-xs leading-relaxed text-slate-500">
+                Secured by PayPal · Pay month-to-month · Cancel anytime with 1 click
+              </p>
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline"
+              >
+                <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                Having trouble paying? Text us on WhatsApp instead.
+              </a>
               <button
                 type="button"
                 onClick={resetAndClose}
-                className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 text-base font-bold text-black transition-transform hover:scale-[1.02]"
+                className="mt-4 inline-flex w-full cursor-pointer items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/10"
               >
-                Done
+                Maybe later
               </button>
             </div>
           ) : (
@@ -168,7 +279,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
                 🔥 Special Launch Deal
               </span>
               <h3 className="mt-3 font-serif text-2xl font-bold text-white">
-                Claim Your Spot For $20/mo
+                Claim Your Spot For $17/mo
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">
                 Drop your details below — no payment now, no setup fees. We&apos;ll contact you to
@@ -176,6 +287,24 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
               </p>
 
               <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
+                <div>
+                  <label htmlFor="claim-business-name" className={labelClass}>
+                    Business Name *
+                  </label>
+                  <input
+                    id="claim-business-name"
+                    type="text"
+                    autoComplete="organization"
+                    value={form.business_name}
+                    onChange={set('business_name')}
+                    placeholder="Acme Plumbing Co."
+                    className={inputClass}
+                  />
+                  {errors.business_name && (
+                    <p className="mt-1.5 text-xs text-destructive">{errors.business_name}</p>
+                  )}
+                </div>
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="claim-first-name" className={labelClass}>
@@ -294,7 +423,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
                     </>
                   ) : (
                     <>
-                      Claim My Spot For $20/mo
+                      Claim My Spot For $17/mo
                       <ArrowRight className="h-5 w-5" aria-hidden="true" />
                     </>
                   )}

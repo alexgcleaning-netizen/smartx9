@@ -10,7 +10,7 @@ const FAQS = [
   },
   {
     q: 'Is there a long contract?',
-    a: 'Zero long-term contracts. You pay month-to-month ($20/mo launch price) and can cancel anytime with 1 click. If the system doesn’t make you money, you shouldn’t pay.',
+    a: 'Zero long-term contracts. You pay month-to-month ($17/mo launch price) and can cancel anytime with 1 click. If the system doesn’t make you money, you shouldn’t pay.',
   },
   {
     q: 'Do I need to switch my current website?',

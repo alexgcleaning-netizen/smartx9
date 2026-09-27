@@ -20,11 +20,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Turn Your Dead Website Into A 24/7 Leads Capture Engine',
   description:
-    'Turn random site visitors into paid jobs while you sleep. Complete technical setup, instant SMS alerts, and a 1-second site for just $20/mo. 1 City. 1 Niche. 1 Partner. Claim your spot.',
+    'Turn random site visitors into paid jobs while you sleep. Complete technical setup, instant SMS alerts, and a 1-second site for just $17/mo. 1 City. 1 Niche. 1 Partner. Claim your spot.',
   openGraph: {
     title: 'Turn Your Dead Website Into A 24/7 Leads Capture Engine',
     description:
-      'Turn random site visitors into paid jobs while you sleep. Complete technical setup, instant SMS alerts, and a 1-second site for just $20/mo. 1 City. 1 Niche. 1 Partner. Claim your spot.',
+      'Turn random site visitors into paid jobs while you sleep. Complete technical setup, instant SMS alerts, and a 1-second site for just $17/mo. 1 City. 1 Niche. 1 Partner. Claim your spot.',
     type: 'website',
   },
   generator: 'v0.app',

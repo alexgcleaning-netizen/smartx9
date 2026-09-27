@@ -57,7 +57,7 @@ export function Pricing() {
             Limited Time Launch Offer
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Get full access to our complete automated lead engine for just $20/mo.
+            Get full access to our complete automated lead engine for just $17/mo.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export function Pricing() {
             <h3 className="font-serif text-xl font-semibold text-white">Starter</h3>
 
             <div className="mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-mono text-5xl font-bold text-white">$20</span>
+              <span className="font-mono text-5xl font-bold text-white">$17</span>
               <span className="text-lg text-muted-foreground">/ mo</span>
               <span className="line-through text-slate-400 text-lg">$97/mo Value</span>
             </div>
@@ -94,7 +94,7 @@ export function Pricing() {
               className="mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-4 text-base font-bold text-black shadow-[0_0_30px_-6px_rgba(37,211,102,0.8)] transition-transform hover:scale-[1.02]"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Claim All Features For $20/mo →
+              Claim All Features For $17/mo →
             </button>
           </div>
 
@@ -128,7 +128,7 @@ export function Pricing() {
                   Currently Locked
                 </p>
                 <p className="mt-1 max-w-[240px] text-center text-xs leading-relaxed text-slate-400">
-                  All features included in $20 Starter Launch Deal
+                  All features included in $17 Starter Launch Deal
                 </p>
               </div>
             </div>
