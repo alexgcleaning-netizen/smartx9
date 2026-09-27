@@ -72,6 +72,20 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} SMART X9. All rights reserved.
           </p>
+          <div className="flex items-center gap-5">
+            <a
+              href="/policies"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/policies"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline"
+            >
+              Refund Policy
+            </a>
+          </div>
           <p className="font-mono text-xs text-muted-foreground">smartx9leads.com</p>
         </div>
       </div>
