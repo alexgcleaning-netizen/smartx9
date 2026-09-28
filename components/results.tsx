@@ -28,9 +28,9 @@ export function Results() {
     <section id="results" className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Results</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">The Proof</p>
           <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-            Proof Speed Wins Jobs
+            Proof That Speed Wins Jobs
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             Real numbers from local service businesses using our system.

@@ -29,7 +29,7 @@ export function SiteNav() {
           <Logo />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

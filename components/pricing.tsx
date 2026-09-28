@@ -59,6 +59,15 @@ export function Pricing() {
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             Get full access to our complete automated lead engine for just $17/mo.
           </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/60 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
+              🔒 Only 1 business per niche, per city
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-success/40 bg-success/10 px-3 py-1.5 text-xs font-medium text-success backdrop-blur">
+              🔥 $17/mo launch price — no contracts
+            </span>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">

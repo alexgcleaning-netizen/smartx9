@@ -26,7 +26,10 @@ export function Problem() {
     <section className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Getting started
+          </p>
+          <h2 className="mt-3 text-balance font-serif text-3xl font-bold tracking-tight sm:text-4xl">
             No Sales Calls. No Pushy Pitches. No{' '}
             <span className="text-secondary">$1,000</span> Contracts.
           </h2>

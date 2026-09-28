@@ -7,7 +7,7 @@ export const CONTACT = {
   linkedin: 'https://www.linkedin.com/in/ruchith-samudika-83a773252',
 }
 
-// Social profiles shown in the founder card (testimonials section).
+// Social profiles shown in the founder section.
 export const SOCIALS = {
   instagram: 'https://www.instagram.com/samudika9',
   facebook: 'https://www.facebook.com/team.smartx9',
@@ -19,10 +19,12 @@ export function whatsappLink(message: string) {
   return `https://wa.me/94786377869?text=${encodeURIComponent(message)}`
 }
 
+// Ordered to match the page funnel: mechanism → demo → proof → price → FAQ.
 export const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works' },
+  { label: 'Live demo', href: '#demo' },
+  { label: 'Proof', href: '#results' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Results', href: '#results' },
   { label: 'FAQ', href: '#faq' },
 ]
 
