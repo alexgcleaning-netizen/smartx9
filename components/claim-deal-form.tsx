@@ -248,7 +248,8 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
               </h3>
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-slate-400">
                 Your details are saved and your $17/mo lead engine is reserved. Tap the gold
-                button below to securely finish your subscription on PayPal.
+                button or the credit/debit card option below to securely finish your subscription
+                on PayPal.
               </p>
 
               <div className="mt-6 w-full" id={PAYPAL_CONTAINER_ID} />
