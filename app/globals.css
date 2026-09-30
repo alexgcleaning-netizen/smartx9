@@ -85,7 +85,9 @@
   text-shadow: 0 0 24px rgba(124, 58, 237, 0.45);
 }
 
-/* Blurred teaser rows on the /roofing leads table — reveals on hover */
+/* Blurred teaser rows on the /roofing leads table & cards.
+   Desktop reveals on hover; touch devices have no hover, so the un-blurred
+   fallback is always available there (see the media query below). */
 @utility blur-teaser {
   filter: blur(6px);
   user-select: none;
@@ -93,6 +95,13 @@
 
   &:hover {
     filter: blur(0px);
+  }
+}
+
+@media (hover: none) {
+  .blur-teaser {
+    filter: blur(4px);
+    opacity: 0.85;
   }
 }
 

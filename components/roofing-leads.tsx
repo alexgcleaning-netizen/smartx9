@@ -86,16 +86,16 @@ export function RoofingLeads() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-emerald-600 selection:text-white">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-slate-950 text-slate-100 selection:bg-emerald-600 selection:text-white">
       {/* ── Login / access gate ─────────────────────────────────────────── */}
       {!unlocked && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-950/90 p-3 backdrop-blur-md sm:items-center sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label="SmartX9Leads secure access"
         >
-          <div className="relative w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-8 text-center shadow-2xl">
+          <div className="relative my-auto w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-5 text-center shadow-2xl sm:p-8">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-500/10">
               <Lock className="h-6 w-6" aria-hidden="true" />
             </div>
@@ -170,42 +170,44 @@ export function RoofingLeads() {
       )}
 
       {/* ── Top radar alert bar ─────────────────────────────────────────── */}
-      <div className="border-b border-emerald-800/40 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 px-4 py-3 text-xs shadow-xl sm:text-sm">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 sm:flex-row">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-3 w-3">
+      <div className="border-b border-emerald-800/40 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 px-4 py-2.5 text-[11px] shadow-xl sm:text-sm sm:py-3">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <p className="flex items-start gap-2 sm:items-center">
+            <span className="relative mt-1 flex h-3 w-3 shrink-0 sm:mt-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
             </span>
-            <span className="font-black uppercase tracking-wider text-emerald-400">
+            <span className="font-black uppercase tracking-wide text-emerald-400">
               Oklahoma Radar Feed:
             </span>
-            <span className="text-slate-200">
-              Severe Storm Cells Detected • Verified Property Managers &amp; Commercial Decision
-              Makers Loaded
+            <span className="min-w-0 text-slate-300">
+              {/* Full sentence on desktop, short form on phones. */}
+              <span className="hidden sm:inline">
+                Severe Storm Cells Detected • Verified Property Managers &amp; Commercial Decision
+                Makers Loaded
+              </span>
+              <span className="sm:hidden">Severe Storm Cells Detected</span>
             </span>
-          </div>
-          <div className="flex items-center gap-4 text-slate-300">
-            <span>
-              <ShieldHalf className="mr-1.5 inline h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
-              Territory Status: <strong>Exclusive (1 Partner Only)</strong>
-            </span>
-          </div>
+          </p>
+          <p className="flex shrink-0 items-center gap-1.5 pl-5 text-slate-300 sm:pl-0">
+            <ShieldHalf className="h-3.5 w-3.5 shrink-0 text-emerald-400" aria-hidden="true" />
+            Territory: <strong>Exclusive (1 Partner)</strong>
+          </p>
         </div>
       </div>
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-600 p-2.5 text-sm font-black tracking-tighter text-white shadow-lg shadow-emerald-600/30">
+        <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 md:min-h-20 md:flex-nowrap md:py-0 lg:px-8">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="shrink-0 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-600 p-2.5 text-sm font-black tracking-tighter text-white shadow-lg shadow-emerald-600/30">
               S9X
             </div>
-            <div>
-              <h1 className="flex items-center text-lg font-black tracking-tight text-white sm:text-xl">
+            <div className="min-w-0">
+              <h1 className="truncate text-base font-black tracking-tight text-white sm:text-lg md:text-xl">
                 smartx9leads.site<span className="text-emerald-400">/roofing</span>
               </h1>
-              <p className="text-xs text-slate-400">
+              <p className="hidden text-xs text-slate-400 sm:block">
                 Connecting Roofers directly to Property Managers &amp; Targeted Commercial Decision
                 Makers
               </p>
@@ -214,18 +216,20 @@ export function RoofingLeads() {
           <button
             type="button"
             onClick={() => setUnlockOpen(true)}
-            className="flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/30 transition hover:bg-emerald-500"
+            className="w-full shrink-0 cursor-pointer rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/30 transition hover:bg-emerald-500 sm:w-auto sm:px-5 sm:py-2.5"
           >
-            <Zap className="h-4 w-4" aria-hidden="true" />
-            <span>Unlock Territory (${PRICE}/mo)</span>
+            <span className="flex items-center justify-center gap-2 sm:justify-start">
+              <Zap className="h-4 w-4" aria-hidden="true" />
+              Unlock Territory (${PRICE}/mo)
+            </span>
           </button>
         </div>
       </header>
 
       {/* ── Main ───────────────────────────────────────────────────────── */}
-      <main className="mx-auto w-full max-w-7xl flex-grow space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-7xl flex-grow space-y-6 px-4 py-6 sm:space-y-8 sm:px-6 sm:py-8 lg:px-8">
         {/* Hero notice */}
-        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-6 shadow-2xl sm:p-8">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-5 shadow-2xl sm:p-8">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute right-0 top-0 h-80 w-80 -translate-y-12 translate-x-12 rounded-full bg-emerald-600/10 blur-3xl"
@@ -234,55 +238,165 @@ export function RoofingLeads() {
             <span className="rounded-full border border-emerald-800 bg-emerald-950/80 px-3 py-1 font-mono text-xs font-bold uppercase tracking-widest text-emerald-400">
               Oklahoma Metro Storm Response System
             </span>
-            <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">
-              Direct Access to Property Managers &amp; Targeted Commercial Decision Makers
+            <h2 className="mt-3 text-lg font-black leading-snug text-white sm:text-2xl lg:text-3xl">
+              Direct Access to Property Managers &amp; Commercial Decision Makers
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
-              We only partner with <strong>one roofing company per city</strong> in Oklahoma. Below
-              is a live preview of verified{' '}
-              <strong>
-                Property Managers, Asset Managers, Facilities Directors, and Commercial Decision
-                Makers
-              </strong>{' '}
-              in recent storm-hit zip codes. Unlock the full engine today for just{' '}
-              <strong>${PRICE}/month</strong> to get complete bulk databases and automated outreach
-              pipelines loaded directly into your account.
+              We only partner with <strong>one roofing company per city</strong> in Oklahoma.
+              {/* Shorter pitch on phones, full detail on larger screens. */}
+              <span className="hidden sm:inline">
+                {' '}
+                Below is a live preview of verified{' '}
+                <strong>
+                  Property Managers, Asset Managers, Facilities Directors, and Commercial Decision
+                  Makers
+                </strong>{' '}
+                in recent storm-hit zip codes.
+              </span>
+              <span className="sm:hidden"> Live preview of verified contacts below.</span> Unlock the
+              full engine today for just <strong>${PRICE}/month</strong> to get complete bulk
+              databases and automated outreach pipelines loaded directly into your account.
             </p>
-            <div className="mt-6 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <button
                 type="button"
                 onClick={() => setUnlockOpen(true)}
-                className="flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-black text-white shadow-xl shadow-emerald-600/30 transition hover:bg-emerald-500"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3.5 text-sm font-black text-white shadow-xl shadow-emerald-600/30 transition hover:bg-emerald-500 sm:w-auto"
               >
-                <KeyRound className="h-4 w-4" aria-hidden="true" />
+                <KeyRound className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>Claim Oklahoma Territory — ${PRICE}/mo</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Leads table */}
+        {/* Leads — mobile card list (below md) / desktop table (md+) */}
         <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-xl">
-          <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/50 px-6 py-4">
-            <h3 className="flex items-center text-base font-bold text-white">
-              <Radar className="mr-2 h-4 w-4 text-emerald-500" aria-hidden="true" />
-              Live Feed: Property Managers &amp; Targeted Commercial Decision Makers
+          <div className="flex flex-col gap-2 border-b border-slate-800 bg-slate-900/50 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
+            <h3 className="flex items-start text-sm font-bold text-white sm:items-center sm:text-base">
+              <Radar className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-emerald-500 sm:mt-0" aria-hidden="true" />
+              <span>Live Feed: Property Managers &amp; Commercial Decision Makers</span>
             </h3>
-            <span className="rounded-full border border-emerald-500/20 bg-slate-800 px-3 py-1 font-mono text-xs text-emerald-400">
-              Showing {VISIBLE_LEAD_COUNT} Active Preview Leads
+            <span className="w-fit shrink-0 rounded-full border border-emerald-500/20 bg-slate-800 px-2.5 py-1 font-mono text-[11px] text-emerald-400 sm:px-3 sm:text-xs">
+              {VISIBLE_LEAD_COUNT} Preview • {lockedCount} Locked
             </span>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* ── Mobile: preview cards, then compact locked teasers ──── */}
+          <ul className="divide-y divide-slate-800/60 md:hidden">
+            {ROOFING_LEADS.slice(0, VISIBLE_LEAD_COUNT).map((lead) => {
+              const wasSent = sentLeadIds.has(lead.id)
+
+              return (
+                <li key={lead.id} className="p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-600 to-teal-600 text-xs font-bold text-white">
+                      {lead.firstName.charAt(0)}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm font-bold text-white">
+                        {lead.firstName} {lead.lastName}
+                      </div>
+                      <div className="truncate text-xs text-slate-400">{lead.role}</div>
+                    </div>
+                    {lead.linkedin ? (
+                      <a
+                        href={lead.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${lead.firstName} on LinkedIn`}
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-950/80 text-emerald-400"
+                      >
+                        <LinkedinIcon className="h-3.5 w-3.5" />
+                      </a>
+                    ) : null}
+                  </div>
+
+                  <div className="mt-2 truncate text-sm font-semibold text-slate-200">
+                    {lead.company}
+                  </div>
+
+                  <div className="mt-1.5 flex flex-wrap items-center gap-2">
+                    <span className="text-xs text-slate-300">{lead.city}</span>
+                    <span className="rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-emerald-400">
+                      {lead.zipCode}
+                    </span>
+                  </div>
+
+                  <div className="mt-2.5 space-y-1 rounded-lg bg-slate-950/60 p-2.5">
+                    <div className="break-all font-mono text-xs text-slate-200">
+                      <Mail className="mr-1 inline h-3 w-3 shrink-0 text-slate-500" aria-hidden="true" />
+                      {lead.email}
+                    </div>
+                    <div className="text-xs text-slate-400">
+                      <Phone className="mr-1 inline h-3 w-3 shrink-0 text-slate-500" aria-hidden="true" />
+                      {lead.phone}
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5">
+                    {wasSent ? (
+                      <span className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/20 px-3 py-2.5 text-xs font-bold text-emerald-400">
+                        <CircleCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                        Email Sent
+                      </span>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setEmailLead(lead)}
+                        className="flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-amber-500 px-3 py-2.5 text-xs font-black text-slate-950 transition hover:bg-amber-400"
+                      >
+                        <Send className="h-3.5 w-3.5" aria-hidden="true" />
+                        <span>Send Email</span>
+                      </button>
+                    )}
+                  </div>
+                </li>
+              )
+            })}
+
+            {/* Locked leads — one compact teaser row each, no repeated CTA */}
+            {ROOFING_LEADS.slice(VISIBLE_LEAD_COUNT).map((lead) => (
+              <li key={lead.id} className="flex items-center gap-3 px-4 py-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-800 text-xs font-bold text-slate-500">
+                  <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1 blur-teaser">
+                  <div className="truncate text-sm font-semibold text-slate-200">
+                    {lead.firstName} S.
+                  </div>
+                  <div className="truncate text-xs text-slate-500">
+                    {lead.role} · {lead.city}
+                  </div>
+                </div>
+                <span className="shrink-0 font-mono text-xs text-amber-500/80">Locked</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Single unlock CTA for the locked group (mobile only) */}
+          <div className="border-t border-slate-800 p-4 md:hidden">
+            <button
+              type="button"
+              onClick={() => setUnlockOpen(true)}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3.5 text-sm font-black text-white shadow-lg shadow-emerald-600/30 transition hover:bg-emerald-500"
+            >
+              <Lock className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>Unlock All {lockedCount} Hidden Leads — ${PRICE}/mo</span>
+            </button>
+          </div>
+
+          {/* ── Desktop: data table ──────────────────────────────────── */}
+          <div className="hidden overflow-x-auto md:block">
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-slate-800 bg-slate-950/50 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  <th className="px-6 py-3.5">Decision Maker</th>
-                  <th className="px-6 py-3.5">Portfolio / Company</th>
-                  <th className="px-6 py-3.5">Storm Zone</th>
-                  <th className="px-6 py-3.5">Direct Contact Data</th>
-                  <th className="px-6 py-3.5 text-center">LinkedIn</th>
-                  <th className="px-6 py-3.5 text-right">Action</th>
+                  <th className="px-3 py-3.5 lg:px-6">Decision Maker</th>
+                  <th className="px-3 py-3.5 lg:px-6">Portfolio / Company</th>
+                  <th className="px-3 py-3.5 lg:px-6">Storm Zone</th>
+                  <th className="px-3 py-3.5 lg:px-6">Direct Contact Data</th>
+                  <th className="px-3 py-3.5 text-center lg:px-6">LinkedIn</th>
+                  <th className="px-3 py-3.5 text-right lg:px-6">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-sm">
@@ -294,7 +408,7 @@ export function RoofingLeads() {
 
                   return (
                     <tr key={lead.id} className="transition hover:bg-slate-900/60">
-                      <td className="px-6 py-3.5 font-medium">
+                      <td className="px-3 py-3.5 font-medium lg:px-6">
                         <div className="flex items-center gap-2">
                           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-600 to-teal-600 text-xs font-bold text-white">
                             {lead.firstName.charAt(0)}
@@ -311,19 +425,19 @@ export function RoofingLeads() {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-3.5">
+                      <td className="px-3 py-3.5 lg:px-6">
                         <div className={`font-semibold text-slate-200${teaser}`}>{lead.company}</div>
                         <div className={`text-xs text-slate-400${teaser}`}>
                           {isVisible ? 'Commercial Asset' : 'Commercial Portfolio'}
                         </div>
                       </td>
-                      <td className="px-6 py-3.5">
+                      <td className="px-3 py-3.5 lg:px-6">
                         <div className="text-slate-200">{lead.city}</div>
                         <span className="rounded bg-slate-800 px-2 py-0.5 font-mono text-xs text-emerald-400">
                           {lead.zipCode}
                         </span>
                       </td>
-                      <td className="px-6 py-3.5">
+                      <td className="px-3 py-3.5 lg:px-6">
                         <div className={`font-mono text-xs text-slate-200${teaser}`}>
                           <Mail className="mr-1 inline h-3 w-3 text-slate-500" aria-hidden="true" />
                           {lead.email}
@@ -333,7 +447,7 @@ export function RoofingLeads() {
                           {lead.phone}
                         </div>
                       </td>
-                      <td className="px-6 py-3.5 text-center">
+                      <td className="px-3 py-3.5 text-center lg:px-6">
                         {isVisible && lead.linkedin ? (
                           <a
                             href={lead.linkedin}
@@ -350,7 +464,7 @@ export function RoofingLeads() {
                           <Lock className="mx-auto h-3.5 w-3.5 text-amber-500/80" aria-hidden="true" />
                         )}
                       </td>
-                      <td className="px-6 py-3.5 text-right">
+                      <td className="px-3 py-3.5 text-right lg:px-6">
                         {isVisible ? (
                           wasSent ? (
                             <span className="ml-auto flex w-fit items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/20 px-3 py-1.5 text-xs font-bold text-emerald-400">
@@ -385,7 +499,7 @@ export function RoofingLeads() {
             </table>
           </div>
 
-          <p className="border-t border-slate-800 px-6 py-4 text-center text-xs text-slate-500">
+          <p className="border-t border-slate-800 px-4 py-4 text-center text-xs text-slate-500 sm:px-6">
             {lockedCount} more verified contacts are loaded into your account after activation.
           </p>
         </div>
@@ -393,36 +507,36 @@ export function RoofingLeads() {
       {/* ── Cold email preview modal ───────────────────────────────────── */}
       {emailLead && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/80 p-3 backdrop-blur-sm sm:items-center sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label="Cold email preview"
         >
-          <div className="relative w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900 p-6 text-left shadow-2xl sm:p-8">
+          <div className="relative my-auto w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-900 p-5 text-left shadow-2xl sm:p-8">
             <button
               type="button"
               onClick={() => setEmailLead(null)}
               aria-label="Close email preview"
-              className="absolute right-4 top-4 cursor-pointer text-lg text-slate-400 hover:text-white"
+              className="absolute right-3 top-3 cursor-pointer text-slate-400 hover:text-white sm:right-4 sm:top-4"
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="mb-6 flex items-center gap-3 border-b border-slate-800 pb-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/20 text-xl text-amber-400">
+            <div className="mb-5 flex items-center gap-3 border-b border-slate-800 pb-4 pr-8">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/20 text-amber-400 sm:h-12 sm:w-12">
                 <Send className="h-5 w-5" aria-hidden="true" />
               </div>
-              <div>
-                <h3 className="text-lg font-black text-white">
+              <div className="min-w-0">
+                <h3 className="text-base font-black text-white sm:text-lg">
                   Cold Email &amp; Commercial Offer Preview
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className="truncate text-xs text-slate-400">
                   Targeting {emailLead.firstName} {emailLead.lastName} ({emailLead.role} at{' '}
                   {emailLead.company})
                 </p>
               </div>
             </div>
 
-            <div className="space-y-4 rounded-xl border border-slate-800 bg-slate-950 p-4 font-mono text-xs text-slate-300">
+            <div className="space-y-4 rounded-xl border border-slate-800 bg-slate-950 p-3 font-mono text-xs text-slate-300 sm:p-4">
               <div>
                 <span className="font-semibold uppercase text-slate-500">To:</span>{' '}
                 <span className="text-white">
@@ -439,18 +553,18 @@ export function RoofingLeads() {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-end gap-3">
+            <div className="mt-5 flex flex-col-reverse gap-3 sm:mt-6 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={() => setEmailLead(null)}
-                className="cursor-pointer rounded-xl bg-slate-800 px-4 py-2.5 text-xs font-semibold text-slate-300 transition hover:bg-slate-700"
+                className="w-full cursor-pointer rounded-xl bg-slate-800 px-4 py-3 text-xs font-semibold text-slate-300 transition hover:bg-slate-700 sm:w-auto sm:py-2.5"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={confirmSendEmail}
-                className="flex cursor-pointer items-center gap-2 rounded-xl bg-amber-500 px-6 py-2.5 text-xs font-black text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3 text-xs font-black text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400 sm:w-auto sm:py-2.5"
               >
                 <Send className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>Send Email Now</span>

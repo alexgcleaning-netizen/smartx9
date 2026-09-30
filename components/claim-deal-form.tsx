@@ -253,7 +253,7 @@ export function ClaimDealForm({
     >
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetAndClose} />
 
-      <div className="animate-pop-in relative w-full max-w-md overflow-hidden rounded-3xl border border-[#25D366]/40 bg-[#0b0f16] shadow-[0_0_60px_-10px_rgba(37,211,102,0.5)]">
+      <div className="animate-pop-in relative max-h-[92dvh] w-full max-w-md overflow-y-auto rounded-3xl border border-[#25D366]/40 bg-[#0b0f16] shadow-[0_0_60px_-10px_rgba(37,211,102,0.5)] sm:max-h-[85vh] sm:overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-24 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-[#25D366]/15 blur-[70px]"
@@ -268,7 +268,7 @@ export function ClaimDealForm({
           <X className="h-4 w-4" aria-hidden="true" />
         </button>
 
-        <div className="relative max-h-[85vh] overflow-y-auto p-7 sm:p-8">
+        <div className="relative max-h-none overflow-visible p-5 sm:max-h-[85vh] sm:overflow-y-auto sm:p-7 lg:p-8">
           {status === 'done' ? (
             <div className="animate-float-in flex flex-col items-center py-4 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
