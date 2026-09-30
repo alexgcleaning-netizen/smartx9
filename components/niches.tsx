@@ -1,5 +1,5 @@
 import Image, { type StaticImageData } from 'next/image'
-import { Plus } from 'lucide-react'
+import { ArrowRight, Plus } from 'lucide-react'
 
 import { CityChecker } from '@/components/city-checker'
 
@@ -13,12 +13,15 @@ import treeRemovalImg from '@/images/tree removal.jpg'
 type Niche = {
   label: string
   image?: string | StaticImageData
+  /** Optional destination — makes the whole tile a link. */
+  href?: string
 }
 
 const NICHES: Niche[] = [
   {
     label: 'Roofing',
     image: roofingImg,
+    href: '/roofing',
   },
   {
     label: 'HVAC & Heating',
@@ -75,23 +78,47 @@ export function Niches() {
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {NICHES.map((n) =>
-            n.image ? (
-              <div
-                key={n.label}
-                className="group relative flex aspect-[4/3] flex-col items-center justify-end overflow-hidden rounded-2xl border border-border p-4 backdrop-blur transition-colors hover:border-primary/40"
-              >
-                <Image
-                  src={n.image}
-                  alt={n.label}
-                  fill
-                  sizes="(min-width: 640px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <span className="relative text-sm font-semibold text-white">{n.label}</span>
-              </div>
-            ) : (
+          {NICHES.map((n) => {
+            const tileClass =
+              'group relative flex aspect-[4/3] flex-col items-center justify-end overflow-hidden rounded-2xl border border-border p-4 backdrop-blur transition-colors hover:border-primary/40'
+
+            // Niches with an href (e.g. Roofing) become fully clickable links.
+            if (n.image && n.href) {
+              return (
+                <a key={n.label} href={n.href} className={tileClass} aria-label={`${n.label} — open the lead engine`}>
+                  <Image
+                    src={n.image}
+                    alt={n.label}
+                    fill
+                    sizes="(min-width: 640px) 25vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <span className="relative flex items-center gap-1.5 text-sm font-semibold text-white">
+                    {n.label}
+                    <ArrowRight className="h-3.5 w-3.5 text-[#25D366]" aria-hidden="true" />
+                  </span>
+                </a>
+              )
+            }
+
+            if (n.image) {
+              return (
+                <div key={n.label} className={tileClass}>
+                  <Image
+                    src={n.image}
+                    alt={n.label}
+                    fill
+                    sizes="(min-width: 640px) 25vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <span className="relative text-sm font-semibold text-white">{n.label}</span>
+                </div>
+              )
+            }
+
+            return (
               <div
                 key={n.label}
                 className="group relative flex aspect-[4/3] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-white/10 to-transparent p-4 backdrop-blur transition-colors hover:border-primary/40"
@@ -99,8 +126,8 @@ export function Niches() {
                 <Plus className="h-5 w-5 text-primary drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] transition-transform duration-300 group-hover:scale-125" />
                 <span className="text-sm font-semibold text-white">{n.label}</span>
               </div>
-            ),
-          )}
+            )
+          })}
         </div>
       </div>
     </section>

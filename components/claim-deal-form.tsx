@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, CheckCircle2, Loader2, MessageCircle, X } from 'lucide-react'
 import { CLAIM_FROM_NAME, CLAIM_SUBJECT, WEB3FORMS_ACCESS_KEY, CONTACT } from '@/lib/site'
 
-type Status = 'idle' | 'sending' | 'paypal' | 'error'
+type Status = 'idle' | 'sending' | 'paypal' | 'done' | 'error'
 
 const inputClass =
   'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-primary/60 focus:ring-2 focus:ring-primary/30'
@@ -19,7 +19,36 @@ const PAYPAL_CLIENT_ID =
 const PAYPAL_PLAN_ID = 'P-3A770749DW147510CNK4ONQA'
 const PAYPAL_CONTAINER_ID = 'paypal-button-container-P-3A770749DW147510CNK4ONQA'
 
-export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () => void }) {
+export type ClaimDealFormProps = {
+  open: boolean
+  onClose: () => void
+  /** Monthly price shown in the copy, e.g. 17 or 34. */
+  price?: number
+  /** Headline + CTA wording for this offer. */
+  headline?: string
+  ctaLabel?: string
+  /** What the visitor is claiming, recorded in the Web3Forms payload. */
+  dealLabel?: string
+  subject?: string
+  fromName?: string
+  /** Show the PayPal subscription step after the details are saved. */
+  showPaypal?: boolean
+  /** Confirmation shown when showPaypal is false. */
+  successMessage?: string
+}
+
+export function ClaimDealForm({
+  open,
+  onClose,
+  price = 17,
+  headline,
+  ctaLabel,
+  dealLabel = '$17/mo Starter Launch Offer',
+  subject = CLAIM_SUBJECT,
+  fromName = CLAIM_FROM_NAME,
+  showPaypal = true,
+  successMessage,
+}: ClaimDealFormProps) {
   const [form, setForm] = useState({
     business_name: '',
     first_name: '',
@@ -89,8 +118,8 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: CLAIM_SUBJECT,
-          from_name: CLAIM_FROM_NAME,
+          subject,
+          from_name: fromName,
           // Honeypot — must stay empty, otherwise Web3Forms flags it as spam.
           botcheck: '',
           replyto: form.email.trim(),
@@ -100,13 +129,14 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
           'Email Address': form.email.trim(),
           'Mobile Number': form.mobile.trim(),
           'WhatsApp Number': form.whatsapp.trim() || 'Not provided',
-          'Deal Requested': '$17/mo Starter Launch Offer',
+          'Deal Requested': dealLabel,
         }),
       })
       const result = await response.json().catch(() => null)
       if (response.ok && result?.success) {
-        // Step 1 saved — flip to Step 2 (PayPal subscription checkout).
-        setStatus('paypal')
+        // Step 1 saved — go to PayPal checkout, or straight to confirmation
+        // when this offer has no online payment step.
+        setStatus(showPaypal ? 'paypal' : 'done')
       } else {
         setStatus('error')
         setErrorMessage(
@@ -172,6 +202,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
 
   // Step 2 — render the official PayPal subscription button.
   useEffect(() => {
+    if (!showPaypal) return
     if (status !== 'paypal' || typeof window === 'undefined') return
 
     let cancelled = false
@@ -209,7 +240,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
     return () => {
       cancelled = true
     }
-  }, [status])
+  }, [status, showPaypal])
 
   if (!open) return null
 
@@ -218,7 +249,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Claim the $17/mo launch deal"
+      aria-label={`Claim the $${price}/mo offer`}
     >
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={resetAndClose} />
 
@@ -238,7 +269,36 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
         </button>
 
         <div className="relative max-h-[85vh] overflow-y-auto p-7 sm:p-8">
-          {status === 'paypal' ? (
+          {status === 'done' ? (
+            <div className="animate-float-in flex flex-col items-center py-4 text-center">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
+                <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 font-serif text-2xl font-bold text-white">
+                Request received, {form.first_name.trim() || 'friend'}!
+              </h3>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-slate-400">
+                {successMessage ??
+                  `Your details are saved and your $${price}/mo spot is reserved. Our team will contact you shortly to activate your territory.`}
+              </p>
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-black transition-transform hover:scale-[1.02]"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                Need it faster? Message us on WhatsApp
+              </a>
+              <button
+                type="button"
+                onClick={resetAndClose}
+                className="mt-3 inline-flex w-full cursor-pointer items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/10"
+              >
+                Close
+              </button>
+            </div>
+          ) : status === 'paypal' ? (
             <div className="animate-float-in flex flex-col items-center py-4 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
                 <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
@@ -247,7 +307,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
                 Almost there, {form.first_name.trim() || 'friend'}!
               </h3>
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-slate-400">
-                Your details are saved and your $17/mo lead engine is reserved. Tap the gold
+                Your details are saved and your ${price}/mo lead engine is reserved. Tap the gold
                 button or the credit/debit card option below to securely finish your subscription
                 on PayPal.
               </p>
@@ -280,7 +340,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
                 🔥 Special Launch Deal
               </span>
               <h3 className="mt-3 font-serif text-2xl font-bold text-white">
-                Claim Your Spot For $17/mo
+                {headline ?? `Claim Your Spot For $${price}/mo`}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">
                 Drop your details below — no payment now, no setup fees. We&apos;ll contact you to
@@ -424,7 +484,7 @@ export function ClaimDealForm({ open, onClose }: { open: boolean; onClose: () =>
                     </>
                   ) : (
                     <>
-                      Claim My Spot For $17/mo
+                      {ctaLabel ?? `Claim My Spot For $${price}/mo`}
                       <ArrowRight className="h-5 w-5" aria-hidden="true" />
                     </>
                   )}
