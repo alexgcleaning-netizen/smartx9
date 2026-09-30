@@ -45,7 +45,7 @@ export function Pricing() {
   const [claimOpen, setClaimOpen] = useState(false)
 
   return (
-    <section id="pricing" className="relative py-14 sm:py-20">
+    <section id="pricing" className="relative scroll-mt-20 py-14 sm:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-24 h-[380px] w-[560px] -translate-x-1/2 rounded-full bg-primary/12 blur-[130px]"

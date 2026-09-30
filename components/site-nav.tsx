@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Menu, X, MessageCircle } from 'lucide-react'
+import { Menu, X, MessageCircle, Zap } from 'lucide-react'
 import { CONTACT, NAV_LINKS } from '@/lib/site'
 import { Logo } from './logo'
 
@@ -43,13 +43,12 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <a
-            href={CONTACT.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[0_0_24px_-4px_var(--primary)] transition-transform hover:scale-[1.03] sm:inline-flex"
+            href="#pricing"
+            className="hidden items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2 text-sm font-semibold text-[#07120c] shadow-[0_0_20px_-4px_rgba(37,211,102,0.7)] transition-transform hover:scale-[1.03] lg:inline-flex"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            WhatsApp us
+            <Zap className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden xl:inline">Claim All Features For $17/mo →</span>
+            <span className="xl:hidden">Claim $17/mo →</span>
           </a>
           <button
             type="button"
@@ -76,6 +75,14 @@ export function SiteNav() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="#pricing"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-[#07120c] shadow-[0_0_20px_-4px_rgba(37,211,102,0.7)]"
+            >
+              <Zap className="h-4 w-4" aria-hidden="true" />
+              Claim All Features For $17/mo →
+            </a>
             <a
               href={CONTACT.whatsapp}
               target="_blank"
